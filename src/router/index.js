@@ -25,7 +25,7 @@ const router = new VueRouter({
 
 // 添加路由导航守卫
 router.beforeEach((to, from, next) => {
-  if(to.path === "/login") next();
+  if(to.path == "/login") return next();
   // console.log(from);
   const sToken = window.sessionStorage.getItem('token');
   if(sToken){
