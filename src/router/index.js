@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Login from '../components/Login'
 
 Vue.use(VueRouter)
 
@@ -15,7 +14,37 @@ const routes = [
   },
   {
     path: '/home',
-    component: () => import('../components/Home')
+    component: () => import('../components/Home'),
+    redirect: '/welcome',
+    children: [
+      {
+        path: '/welcome',
+        component: () => import('../components/Welcome')
+      },
+      {
+        //商品分类界面
+        path: '/goods',
+        component: () => import('../components/item1/Categories')
+      },
+      {
+        //分类参数
+        path: '/categories',
+        component: () => import('../components/item1/Goods')
+      },
+      {
+        //商品列表
+        path: '/params',
+        component: () => import('../components/item1/Params')
+      },
+      {
+        path: '/orders',
+        component: () => import('../components/item2/Orders')
+      },
+      {
+        path: '/reports',
+        component: () => import('../components/item3/Reports')
+      }
+    ]
   }
 ]
 
@@ -25,12 +54,12 @@ const router = new VueRouter({
 
 // 添加路由导航守卫
 router.beforeEach((to, from, next) => {
-  if(to.path == "/login") return next();
+  if (to.path == '/login') return next()
   // console.log(from);
-  const sToken = window.sessionStorage.getItem('token');
-  if(sToken){
+  const sToken = window.sessionStorage.getItem('token')
+  if (sToken) {
     next()
-  }else{
+  } else {
     return next('/login')
   }
 })

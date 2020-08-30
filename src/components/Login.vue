@@ -46,8 +46,8 @@ export default {
   data() {
     return {
       form: {
-        username: 'admin',
-        password: '123456'
+        username: '',
+        password: ''
       },
       loginFormRules: {
         username: [
@@ -72,7 +72,6 @@ export default {
           const data = result.data
           if (data.meta.status == 200) {
             this.$message.success('登录成功！')
-            console.log(data)
             // 将成功的token保存在sessionStorage中
             window.sessionStorage.setItem('token', data.data.token)
             this.$router.push('/home')
