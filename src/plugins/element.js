@@ -7,7 +7,7 @@ import { Container, Header, Aside, Main } from 'element-ui'
 // 主页侧边栏菜单
 import { Menu, Submenu, MenuItem } from 'element-ui'
 // 主页右侧菜单
-import { Breadcrumb,BreadcrumbItem,Card,Row,Col,Tag,Pagination,Dialog,Cascader,Alert,Tabs, TabPane, Table, TableColumn } from 'element-ui'
+import { Breadcrumb,BreadcrumbItem,Card,Row,Col,Tag,Pagination,Dialog,Cascader,Alert,Tabs, TabPane, Table, TableColumn, Steps, Step } from 'element-ui'
 //弹窗
 import { MessageBox } from 'element-ui'
 
@@ -36,5 +36,7 @@ Vue.use(Tabs)
 Vue.use(TabPane)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Steps)
+Vue.use(Step)
 Vue.prototype.$message = Message;
 Vue.prototype.$confirm = MessageBox.confirm;
